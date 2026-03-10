@@ -22,12 +22,12 @@ def generate_keys():
 
 def encrypt(message, public_key):
     e, n = public_key
-    cipher = [(pow(ord(char), e) % n) for char in message]
+    cipher = [pow(ord(char), e, n) for char in message]
     return cipher
 
 def decrypt(cipher, private_key):
-    d, n  = private_key
-    message = ''.join([chr(pow(char, d) % n) for char in cipher])
+    d, n = private_key
+    message = ''.join([chr(pow(char, d, n)) for char in cipher])
     return message
 
 if __name__ == "__main__":
