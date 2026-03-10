@@ -3,11 +3,11 @@ import secrets
 import sys
 
 def generate_keys():
-    p = sympy.randprime(1000, 9999)
-    q = sympy.randprime(1000, 9999)
+    p = sympy.randprime(1000, 10000)
+    q = sympy.randprime(1000, 10000)
 
     while q == p:
-        q = sympy.randprime(1000, 9999)
+        q = sympy.randprime(1000, 10000)
 
     n = p * q
     phi = (p - 1) * (q - 1)
@@ -22,7 +22,7 @@ def generate_keys():
 
 def encrypt(message, public_key):
     e, n = public_key
-    cipher = [(pow(char, e) % n) for char in message]
+    cipher = [(pow(ord(char), e) % n) for char in message]
     return cipher
 
 def decrypt(cipher, private_key):
