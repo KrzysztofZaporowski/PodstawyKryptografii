@@ -111,6 +111,9 @@ def poker_test(output):
     for piece in output_pieces:
         counts[piece] += 1
 
+    for piece, count in counts.items():
+        print(f"{piece}: {count}")
+
     square_sum = sum(count**2 for count in counts.values())
 
     X = 16 / 5000 * square_sum - 5000 
@@ -121,7 +124,7 @@ def poker_test(output):
 
 
 if __name__ == "__main__":
-    bits = 128
+    bits = 14
     output_length = 20_000
     random_bits = blum_blum_shub(bits, output_length)
     
