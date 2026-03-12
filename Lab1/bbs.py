@@ -31,21 +31,21 @@ def blum_blum_shub(bits, output_length):
     p, q, N = generate_blum_integer_pair(bits)
     x = seed_generator(N)
 
-    x0 = (x**2) % N
+    x0 = pow(x, 2, N)
     output = ""
 
     x_now = x0
     for _ in range(output_length):
-        x_next = (x_now**2) % N
+        x_next = pow(x_now, 2, N)
         output_bit = x_next & 1
         output += str(output_bit)
         x_now = x_next
     return output
 
 def monobit_test(output):
-    output.count('1')
-    print(f"Number of 1s: {output.count('1')}")
-    if 9725 < output.count('1') < 10275:
+    count_1 = output.count('1')
+    print(f"Number of 1s: {count_1}")
+    if 9725 < count_1 < 10275:
         return True
 
 def runs_test(output):
@@ -61,7 +61,7 @@ def runs_test(output):
         else:
             idx = min(length, 6)
             
-            if current_bit == '0' or current_bit == 0:  
+            if current_bit == '0':  
                 counts_0[idx] += 1
             else:
                 counts_1[idx] += 1
@@ -70,7 +70,7 @@ def runs_test(output):
             length = 1
     
     idx = min(length, 6)
-    if current_bit == '0' or current_bit == 0:
+    if current_bit == '0':
         counts_0[idx] += 1
     else:
         counts_1[idx] += 1
@@ -137,11 +137,16 @@ if __name__ == "__main__":
 
     print("=== Runs Test ===")
     runs_test_result = runs_test(random_bits)
+    passed_all = all(runs_test_result.values())
     for k, passed in runs_test_result.items():
         if passed:
-            print(f"+++ Run of length {k} passed. +++")
+            print(f"+ Run of length {k} passed. +")
         else:
-            print(f"--- Run of length {k} failed. ---")
+            print(f"- Run of length {k} failed. -")
+    if passed_all:
+        print("+++ Runs test passed. +++\n")
+    else:
+        print("--- Runs test failed. ---\n")
     print()
 
     print("=== Long Run Test ===")
