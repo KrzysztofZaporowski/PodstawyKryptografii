@@ -44,6 +44,7 @@ def blum_blum_shub(bits, output_length):
 
 def monobit_test(output):
     output.count('1')
+    print(f"Number of 1s: {output.count('1')}")
     if 9725 < output.count('1') < 10275:
         return True
 
@@ -112,6 +113,7 @@ def poker_test(output):
     square_sum = sum(count**2 for count in counts.values())
 
     X = 16 / 5000 * square_sum - 5000 
+    print(f"X: {X}")
     if 2.16 < X < 46.17:
         return True
     return False
