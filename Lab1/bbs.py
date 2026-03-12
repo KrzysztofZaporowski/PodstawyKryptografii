@@ -117,7 +117,7 @@ def poker_test(output):
     square_sum = sum(count**2 for count in counts.values())
 
     X = 16 / 5000 * square_sum - 5000 
-    print(f"X: {X}")
+    print(f"X: {X:.2f}")
     if 2.16 < X < 46.17:
         return True
     return False
