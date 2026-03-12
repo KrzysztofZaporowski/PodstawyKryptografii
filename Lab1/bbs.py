@@ -124,7 +124,7 @@ def poker_test(output):
 
 
 if __name__ == "__main__":
-    bits = 14
+    bits = 13
     output_length = 20_000
     random_bits = blum_blum_shub(bits, output_length)
     
@@ -147,7 +147,6 @@ if __name__ == "__main__":
         print("+++ Runs test passed. +++\n")
     else:
         print("--- Runs test failed. ---\n")
-    print()
 
     print("=== Long Run Test ===")
     if long_run_test(random_bits):
