@@ -89,8 +89,9 @@ def runs_test(output):
         low, high = ranges[k]
         passed_0 = low <= counts_0[k] <= high
         passed_1 = low <= counts_1[k] <= high
-        print(f"{low}, {high} |  {counts_0[k] + counts_1[k]}")
-        
+        print(f"For 0: {low}, {high} |  {counts_0[k]}")
+        print(f"For 1: {low}, {high} |  {counts_1[k]}")
+
         result[k] = passed_0 and passed_1
 
     return result
