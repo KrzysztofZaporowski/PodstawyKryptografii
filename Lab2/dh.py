@@ -36,16 +36,19 @@ if __name__ == "__main__":
     # Define public values
     public_values = define_public_values()
     print(f"Public values (n, g): {public_values}")
+    print("=" * 40)
 
     # A's steps
     x, X = A_steps(public_values)
     print(f"A's private value (x): {x}")
     print(f"A's public value (X): {X}")
+    print("=" * 40)
 
     # B's steps
     y, Y = B_steps(public_values)
     print(f"B's private value (y): {y}")
     print(f"B's public value (Y): {Y}")
+    print("=" * 40)
 
     # Compute shared secrets
     shared_secret_A = compute_shared_secret_A(x, Y, public_values)
