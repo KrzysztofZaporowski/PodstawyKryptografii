@@ -9,6 +9,8 @@ def generate_keys():
     while q == p:
         q = sympy.randprime(1000, 10000)
 
+    print(f"Generated primes: p={p}, q={q}")
+
     n = p * q
     phi = (p - 1) * (q - 1)
 
@@ -17,6 +19,7 @@ def generate_keys():
         e = secrets.randbelow(phi - 1) + 1
     
     d = sympy.mod_inverse(e, phi)
+    print(f"Generated keys: e={e}, d={d}")
 
     return (e, n), (d, n)
 
