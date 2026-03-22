@@ -73,7 +73,8 @@ if __name__ == "__main__":
     "abcdefghijklmno",  # 15
     "abcdefghijklmnopqrstuvwxy",  # 25
     "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx",  # 50
-    "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv"  # 100
+    "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv",  # 100
+    "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv" * 10  # 1000
     ]
     for s in strings:
         print(f"Porównwnie hashy dla: {len(s)} znaków")
