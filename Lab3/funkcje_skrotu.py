@@ -1,6 +1,5 @@
 import hashlib
 import time
-import os
 import random
 
 """Short description of each hash function in markdown file - funkcje_skrotu.md"""
