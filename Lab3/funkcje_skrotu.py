@@ -68,14 +68,24 @@ def randomness_of_hashes(algorithm, text, iterations=1000):
 
 
 if __name__ == "__main__":
-    compare_hashes("Hello World!")
+    strings = [
+    "abcde",  # 5
+    "abcdefghij",  # 10
+    "abcdefghijklmno",  # 15
+    "abcdefghijklmnopqrstuvwxy",  # 25
+    "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx",  # 50
+    "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv"  # 100
+    ]
+    for s in strings:
+        print(f"Porównwnie hashy dla: {len(s)} znaków")
+        compare_hashes(s)
+        print()
     print("\nZnajdowanie kolizji dla SHA-256 (3 pierwsze znaki):")
     collision = find_collision()
     if collision:
         val1, val2, h_prefix = collision
         print(f"Kolizja! '{val1}' i '{val2}' mają ten sam prefix: {h_prefix}")
 
-    print("\nLosowość hashy dla SHA-256:")
     algorithms = [
         'md5', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512',
         'sha3_224', 'sha3_256', 'sha3_384', 'sha3_512'
@@ -83,3 +93,5 @@ if __name__ == "__main__":
     for algo in algorithms:
         print(f"\nLosowość hashy dla {algo}:")
         randomness_of_hashes(algo, "Lorem ipsum dolor sit amet", iterations=1000)
+
+    print("Hash długości 4 znaków dla 'text' MD5:", hashlib.md5(b"text").hexdigest())
