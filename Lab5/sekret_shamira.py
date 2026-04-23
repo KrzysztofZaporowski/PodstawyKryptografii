@@ -2,6 +2,12 @@ import random
 import sympy
 import secrets
 
+# n - liczba wszystkich udziałów
+# t - liczba udziałów potrzebna do rekonstrukcji sekretu
+# s - sekret do podziału
+# k - wartość liczbowa określająca przestrzeń liczbową
+
+
 def modInverse(a, p):
     # Obliczanie odwrotności modularnej: a^(-1) mod p
     return pow(a, p - 2, p)

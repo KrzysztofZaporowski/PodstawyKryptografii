@@ -9,7 +9,7 @@ Podstawowe wady tej metody:
 
 - Brak progu (Threshold): Nie możesz ustawić zasady, że np. 3 z 5 udziałów wystarczy. W metodzie trywialnej zawsze muszą być wszytskie udziały ($n$ z $n$). Jeśli jeden udział przepadnie, sekret przepada na zawsze.
 - Wrażliwość na modyfikacje: Metoda nie posiada mechanizmu weryfikacji. Jeśli jeden z uczestników poda błędny udział (celowo lub przez błąd transmisji), wynik sumowania będzie błędny, a Ty nie będziesz wiedział, kto zawinił.
-- Zależność od $k$: W Twoim kodzie musisz bezpiecznie przechowywać lub przekazać również wartość $k$. Jeśli uczestnicy znają udziały, ale zapomną, jakie było $k$, nie odtworzą sekretu poprawnie.
+- Zależność od $k$: Trzeba bezpiecznie przechowywać lub przekazać również wartość $k$. Jeśli uczestnicy znają udziały, ale zapomną, jakie było $k$, nie odtworzą sekretu poprawnie.
 
 ## Podział sekretu Shamira
 
