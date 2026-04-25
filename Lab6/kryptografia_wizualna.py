@@ -59,12 +59,12 @@ user_input = "Tekst do ukrycia"
 
 # 1. Generuj obraz źródłowy
 source = text_to_image(user_input)
-source.save("source.png")
+source.save("Lab6/source.png")
 
 # 2. Rozdziel na udziały
 share1, share2 = generate_visual_shares(source)
-share1.save("share1.png")
-share2.save("share2.png")
+share1.save("Lab6/share1.png")
+share2.save("Lab6/share2.png")
 
 # 3. Symulacja złożenia (nakładanie przez logiczne AND/min)
 # W fizycznym świecie nakładasz folie, w kodzie to operacja na pikselach
@@ -78,6 +78,6 @@ for y in range(100):
         # Nałożenie folii to matematycznie logiczne "I" dla światła (0-czarny wygrywa)
         c_pix[x, y] = s1_p[x, y] & s2_p[x, y]
 
-combined.save("result_combined.png")
+combined.save("Lab6/result_combined.png")
 
 print("Zakończono! Wygenerowano pliki: source.png, share1.png, share2.png oraz result_combined.png")
