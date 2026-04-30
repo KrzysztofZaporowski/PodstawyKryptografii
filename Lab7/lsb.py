@@ -1,6 +1,11 @@
 import numpy as np
 import cv2
 
+def are_bits_per_pixel_valid(bits_per_pixel):
+    if bits_per_pixel < 1 or bits_per_pixel > 8:
+        raise ValueError("bits_per_pixel must be between 1 and 8.")
+    return True
+
 def load_image(image_path):
     image = cv2.imread(image_path)
     if image is None:
@@ -8,6 +13,7 @@ def load_image(image_path):
     return image
 
 def hide_message(image, message, bits_per_pixel=1):
+    are_bits_per_pixel_valid(bits_per_pixel)
     binary_message = ''.join(format(ord(char), '08b') for char in message)
     
     padding = (bits_per_pixel - len(binary_message) % bits_per_pixel) % bits_per_pixel
@@ -31,6 +37,7 @@ def hide_message(image, message, bits_per_pixel=1):
     return flat_image.reshape(image.shape)
 
 def extract_message(image, char_count, bits_per_pixel=1):
+    are_bits_per_pixel_valid(bits_per_pixel)
     flat_image = image.flatten()
     total_bits_needed = char_count * 8
     required_pixels = int(np.ceil(total_bits_needed / bits_per_pixel))
