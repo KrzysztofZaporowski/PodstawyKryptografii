@@ -56,10 +56,11 @@ def extract_message(image, char_count, bits_per_pixel=1):
 if __name__ == "__main__":
     message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     image_path = "Lab7/image.jpg"
+    bpp = 6
 
     image = load_image(image_path)
-    modified_image = hide_message(image, message, bits_per_pixel=6)
+    modified_image = hide_message(image, message, bits_per_pixel=bpp)
     cv2.imwrite("Lab7/modified_image.png", modified_image)  
 
-    extracted_message = extract_message(modified_image, len(message), bits_per_pixel=6)
+    extracted_message = extract_message(modified_image, len(message), bits_per_pixel=bpp)
     print("Extracted message:", extracted_message)
